@@ -1,0 +1,11 @@
+# Ignore everything:
+/*
+/*/
+
+# Exception
+!/awesome/
+!/alacritty/
+!/.gitignore
+!/nitrogen/
+!/polybar/
+!/README.md

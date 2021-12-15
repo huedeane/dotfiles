@@ -1,2 +1,2 @@
-# .config
+# My Linux Configuration File
 asd
