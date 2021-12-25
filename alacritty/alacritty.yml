@@ -4,14 +4,28 @@ window:
     columns: 140
     lines: 38
   padding:
-    x: 35
-    y: 35
+    x: 20
+    y: 20
   decorations: full #Still won't show in a window manger, but will in a desktop environment
 scrolling:
   history: 10000
   multiplier: 3
-background_opacity: .7
+background_opacity: .5
 window.dynamic_title: true
+
+font:
+  normal:
+    family: Comic Code
+  bold:
+    family: Comic Code
+    style: Bold
+  italic:
+    family: Comic Code
+    style: Italic
+  bold_italic:
+    family: Comic Code
+    style: Bold Italic
+
 
 
 colors:
@@ -63,3 +77,4 @@ cursor:
 
 key_bindings:
   - { key: N, mods: Control, action: SpawnNewInstance }
+
