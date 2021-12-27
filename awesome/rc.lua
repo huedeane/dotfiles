@@ -584,5 +584,5 @@ beautiful.border_width = 20
 -- Shell Spawn
 awful.spawn.with_shell("picom") 
 awful.spawn.with_shell("rofi -modi window,run,drun")
-awful.spawn.with_shell("nitrogen --set-zoom-fill --random /usr/share/backgrounds")
+awful.spawn.with_shell("feh --randomize --bg-fill ~/.config/wallpaper")
 awful.spawn.with_shell("~/.config/polybar/launch.sh")
