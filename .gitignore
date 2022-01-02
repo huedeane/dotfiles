@@ -3,9 +3,9 @@
 /*/
 
 # Exception
-!/awesome/
 !/alacritty/
 !/.gitignore
 !/nitrogen/
 !/polybar/
 !/README.md
+!/qtile/
