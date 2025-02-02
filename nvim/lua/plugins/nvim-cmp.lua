@@ -1,5 +1,4 @@
 return {
-  -- Completion Engine and Sources
   {
     "hrsh7th/nvim-cmp", -- Main completion engine
     dependencies = {
