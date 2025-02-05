@@ -1,12 +1,18 @@
-# Ignore everything:
+# Ignore everything
 /*
-/*/
 
-# Exception
-!/alacritty/
-!/.gitignore
-!/nitrogen/
-!/polybar/
-!/README.md
-!/qtile/
-!/nvim/
+# Allow .config folder but not its content by default
+.config/*
+
+# Allow only specific folders inside .config
+!.config
+!.config/alacritty/
+!.config/kitty/
+!.config/nitrogen/
+!.config/polybar/
+!.config/qtile/
+!.config/nvim/
+
+# Ensure .gitignore and README.md are tracked
+!.gitignore
+!README.md
