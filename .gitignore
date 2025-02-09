@@ -13,6 +13,10 @@
 !.config/qtile/
 !.config/nvim/
 
+# Other Dot Files
+!.bashrc
+
+
 # Ensure .gitignore and README.md are tracked
 !.gitignore
 !README.md
