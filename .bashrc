@@ -88,7 +88,7 @@ unset rc
 		#Set static length left-side
 		local leftover_length_left=13
 		#Set static length right-side
-		local leftover_length_right=15
+		local leftover_length_right=13
 
 		# Get Caculated Length
 		local directory_length=$(caculate_directory_length)
@@ -221,10 +221,9 @@ unset rc
 			"${begin}\e[${foreground};2;${color_lavender}m${end}$(draw_line)${end_color}"\
 			"${begin}\e[${foreground};2;${color_lavender}m${end}${icon_left_half_black_circle}${end_color}"\
 			"${begin}\e[${background};2;${color_lavender}m\e[${foreground};2;${color_black}m${end}${info_date}${end_color}"\
-			"${begin}\e[${foreground};2;${color_lavender}m${end}${icon_right_half_black_circle}${icon_box_drawings_light_horizontal}${icon_box_drawings_light_arc_down_and_left}${end_color}"\
+			"${begin}\e[${foreground};2;${color_lavender}m${end}${icon_right_half_black_circle}${end_color}"\
 			"${next_line}"\
-			"${begin}\e[${foreground};2;${color_lavender}m${end}${icon_box_drawings_light_arc_up_and_right}${icon_box_drawings_light_horizontal}${space}${icon_right}${icon_right}${icon_right}${space}${symbol}${space}"\
-			"$(generate_right_align_text)"
+			"${begin}\e[${foreground};2;${color_lavender}m${end}${icon_box_drawings_light_arc_up_and_right}${icon_box_drawings_light_horizontal}${space}${icon_right}${icon_right}${icon_right}${space}${symbol}${space}"
 		)		
 	}
 
