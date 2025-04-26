@@ -12,6 +12,10 @@ then
 fi
 export PATH
 
+dotsettings=$(cat dotsettings.json)
+
+export OPENAI_KEY=$(echo $dotsettings | jq -r '.secret_key.chatgpt')
+
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
