@@ -12,6 +12,8 @@
 !.config/polybar/
 !.config/qtile/
 !.config/nvim/
+!.config/vesktop/
+.config/vesktop/*
 !.config/vesktop/themes/
 !.config/vesktop/settings/
 
