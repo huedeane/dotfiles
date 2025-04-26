@@ -27,9 +27,10 @@ if
 fi
 
 
-# Setup GitHub Credentials
+# Setup GitHub
 git config --global credential.helper store
 echo "https://$GITHUB_USERNAME:$GITHUB_KEY@github.com" > ~/.git-credentials
+git update-index --assume-unchanged dotsettings.json
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
