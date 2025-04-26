@@ -14,7 +14,22 @@ export PATH
 
 dotsettings=$(cat dotsettings.json)
 
-export OPENAI_KEY=$(echo $dotsettings | jq -r '.secret_key.chatgpt')
+export OPENAI_KEY=$(echo $dotsettings | jq -r '.chatgpt.secret_key')
+export GITHUB_USERNAME=$(echo $dotsettings | jq -r '.github.username')
+export GITHUB_KEY=$(echo $dotsettings | jq -r '.github.secret_key')
+
+# Check if any of the credentials are empty
+if 
+  [ -z "$OPENAI_KEY" ] || 
+  [ -z "$GITHUB_USERNAME" ] || 
+  [ -z "$GITHUB_KEY" ]; then
+    echo "Error: One or more credentials are missing or empty."
+fi
+
+
+# Setup GitHub Credentials
+git config --global credential.helper store
+echo "https://$GITHUB_USERNAME:$GITHUB_KEY@github.com" > ~/.git-credentials
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=

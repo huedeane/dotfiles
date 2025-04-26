@@ -15,7 +15,6 @@
 
 # Other Dot Files
 !.bashrc
-!dotsettings.json
 
 # Ensure .gitignore and README.md are tracked
 !.gitignore
