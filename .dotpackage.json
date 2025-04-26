@@ -1,0 +1,18 @@
+{
+  "packages": [
+    {
+      "name": "nvim",
+      "description": "Neovim is an extensible, modern Vim with enhanced performance, plugin support, and built-in terminal.",
+      "install_type": "package-manager",
+      "version": "latest",
+      "exec": ""
+    },
+    {
+      "name": "chatgpt-shell-cli",
+      "description": "A minimal shell script for accessing OpenAI’s ChatGPT and DALL·E directly from the terminal",
+      "install_type": "command",
+      "exec": "dnf copr enable kylegospo/chatGPT-shell-cli -y && dnf install chatgpt-shell-cli -y"
+    }
+  ]
+}
+

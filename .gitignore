@@ -21,4 +21,5 @@
 !.gitignore
 !README.md
 
-
+# Setup Script
+!dotsetup.sh

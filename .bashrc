@@ -12,7 +12,7 @@ then
 fi
 export PATH
 
-dotsettings=$(cat dotsettings.json)
+dotsettings=$(cat .dotsettings.json)
 
 export OPENAI_KEY=$(echo $dotsettings | jq -r '.chatgpt.secret_key')
 export GITHUB_USERNAME=$(echo $dotsettings | jq -r '.github.username')
@@ -30,7 +30,7 @@ fi
 # Setup GitHub
 git config --global credential.helper store
 echo "https://$GITHUB_USERNAME:$GITHUB_KEY@github.com" > ~/.git-credentials
-git update-index --assume-unchanged dotsettings.json
+git update-index --assume-unchanged .dotsettings.json
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
