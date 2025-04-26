@@ -15,10 +15,10 @@
 
 # Other Dot Files
 !.bashrc
+!.dotpackage.json
 
 # Ensure .gitignore and README.md are tracked
 !.gitignore
 !README.md
 
-# Don't track
-dotsettings.json
+
