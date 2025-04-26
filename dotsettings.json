@@ -1,6 +1,10 @@
 {
-  "secret_key": {
-    "chatgpt" : "",
+  "chatgpt": {
+    "secret_key" : "",
     "github" : ""
+  }
+  "github": {
+    "username" : "",
+    "secret_key" : ""
   }
 }
