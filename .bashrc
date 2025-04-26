@@ -12,6 +12,7 @@ then
 fi
 export PATH
 
+# Dot Settings
 dotsettings=$(cat .dotsettings.json)
 
 export OPENAI_KEY=$(echo $dotsettings | jq -r '.chatgpt.secret_key')
@@ -25,7 +26,6 @@ if
   [ -z "$GITHUB_KEY" ]; then
     echo "Error: One or more credentials are missing or empty."
 fi
-
 
 # Setup GitHub
 git config --global credential.helper store
@@ -249,3 +249,8 @@ unset rc
 
 	PROMPT_COMMAND="set_ps1"
 #PS1 End
+
+# ---------------------------------
+# Custom Aliases
+# ---------------------------------
+alias update-grub='sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
