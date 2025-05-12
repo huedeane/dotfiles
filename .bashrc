@@ -17,6 +17,7 @@ dotsettings=$(cat .dotsettings.json)
 
 export OPENAI_KEY=$(echo $dotsettings | jq -r '.chatgpt.secret_key')
 export GITHUB_USERNAME=$(echo $dotsettings | jq -r '.github.username')
+export GITHUB_EMAIL=$(echo $dotsettings | jq -r '.github.email')
 export GITHUB_KEY=$(echo $dotsettings | jq -r '.github.secret_key')
 
 # Check if any of the credentials are empty
@@ -29,6 +30,8 @@ fi
 
 # Setup GitHub
 git config --global credential.helper store
+git config --global user.email "$GITHUB_EMAIL"
+git config --global user.name "$GITHUB_USERNAME"
 echo "https://$GITHUB_USERNAME:$GITHUB_KEY@github.com" > ~/.git-credentials
 git update-index --assume-unchanged .dotsettings.json
 
@@ -253,4 +256,12 @@ unset rc
 # ---------------------------------
 # Custom Aliases
 # ---------------------------------
-alias update-grub='sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
+alias grub-update='sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
+alias chatgpt='chatgpt.sh'
+alias gpt='chatgpt.sh'
+alias bash-update="source ~/.bashrc"
+alias bash-edit="nvim ~/.bashrc"
+alias nix-rebuild="sudo nixos-rebuild switch"
+alias nix-edit="sudo nvim /etc/nixos/configuration.nix"
+alias hm-home-edit="nvim ~/.config/home-manager/home.nix"
+alias hm-flake-edit="nvim ~/.config/home-manager/flake.nix"

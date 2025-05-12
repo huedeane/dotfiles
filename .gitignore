@@ -16,6 +16,7 @@
 .config/vesktop/*
 !.config/vesktop/themes/
 !.config/vesktop/settings/
+!.config/home-manager/
 
 # Other Dot Files
 !.bashrc
