@@ -14,10 +14,17 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
-
+  
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
+  
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -34,6 +41,21 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.waybar
+    pkgs.dunst
+    pkgs.libnotify
+    pkgs.swww
+    pkgs.kitty
+    pkgs.rofi-wayland
+    pkgs.neovim
+    pkgs.git
+    pkgs.jq
+    pkgs.chatgpt-shell-cli
+    pkgs.vesktop
+    pkgs.obsidian
+    pkgs.firefox
+    pkgs.fontconfig
+    pkgs.nerd-fonts.comic-shanns-mono
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -71,6 +93,13 @@
     # EDITOR = "emacs";
   };
 
+  # Enable Fonts config
+  fonts.fontconfig = {
+    enable = true;
+  };
+
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs.home-manager = {
+    enable = true;
+  };
 }
