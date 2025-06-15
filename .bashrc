@@ -257,7 +257,7 @@ unset rc
 # Custom Aliases
 # ---------------------------------
 alias grub-update='sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
-alias chatgpt='chatgpt.sh'
+alias chatgpt='chatgpt'
 alias gpt='chatgpt.sh'
 alias bash-update="source ~/.bashrc"
 alias bash-edit="nvim ~/.bashrc"
