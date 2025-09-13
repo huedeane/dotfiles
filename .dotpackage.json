@@ -12,6 +12,13 @@
       "description": "A minimal shell script for accessing OpenAI’s ChatGPT and DALL·E directly from the terminal",
       "install_type": "command",
       "exec": "dnf copr enable kylegospo/chatGPT-shell-cli -y && dnf install chatgpt-shell-cli -y"
+    },
+    {
+      "name": "kitty",
+      "description": "Fast, feature-packed, and highly customizable terminal emulator designed",
+      "install_type": "package-manager",
+      "version": "latest",
+      "exec": ""
     }
   ]
 }
