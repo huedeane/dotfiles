@@ -516,7 +516,8 @@
             "enabled": false
         },
         "VolumeBooster": {
-            "enabled": false
+            "enabled": true,
+            "multiplier": 2
         },
         "WebKeybinds": {
             "enabled": true
@@ -543,6 +544,15 @@
         "Settings": {
             "enabled": true,
             "settingsLocation": "aboveNitro"
+        },
+        "DisableDeepLinks": {
+            "enabled": true
+        },
+        "SupportHelper": {
+            "enabled": true
+        },
+        "WebContextMenus": {
+            "enabled": true
         }
     },
     "notifications": {
@@ -555,6 +565,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1757750606057
+        "settingsSyncVersion": 1757887746470
     }
 }
