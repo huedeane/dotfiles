@@ -1,19 +1,23 @@
-#!/bin/bash
-
-if [[ $PWD == "~/dotfiles"]]; then
-  cd ~
-  cp rf ~/dotfiles/. ~/
-  rm -rf dotfiles
-fi
-
 # Path to the JSON file
 PACKAGE_JSON=".dotpackage.json"
 
 # Function to check if the script is run with sudo privileges
 function check_sudo() {
-  if [ "$(id -u)" -ne 0 ]; then
-    echo "This script requires sudo privileges."
+   if [ "$(id -u)" -eq 0 ] && [ "$1" != "bypass" ]; then
+    echo "Do not run this script with sudo. Exiting."
     exit 1
+  fi
+
+  if [ "$(id -u)" -ne 0 ]; then
+    if [[ "$PWD" == "$HOME/dotfiles" ]]; then
+      echo "Delete and moving files."
+      cd ~
+      cp -rf ~/dotfiles/. ~/
+      rm -rf dotfiles
+    fi
+ 
+    echo "Executing with bypass"
+    exec sudo bash "$0" "bypass" "$@"
   fi
 }
 
@@ -37,30 +41,8 @@ function detect_package_manager() {
   fi
 }
 
-# Function to check if jq is installed
-function check_jq_installed() {
-  echo "---jq---"
-  $INSTALL_CMD jq
-}
-
-# Function to install the latest version of a package
-function install_latest() {
-  $INSTALL_CMD "$1"
-}
-
-# Function to install a specific version of a package
-function install_version() {
-  $INSTALL_CMD "$1=$2"
-}
-
-# Function to handle custom command installation
-function install_custom_command() {
-  local exec_command="$1"
-  eval "$exec_command"
-}
-
-# Check if the script is being run with sudo
-check_sudo
+# Reload to sudo
+check_sudo "$@"
 
 # Detect the package manager
 detect_package_manager
@@ -94,6 +76,7 @@ for package in $(jq -r '.packages[] | @base64' "$PACKAGE_JSON"); do
     install_version "$name" "$version"
   fi
 done
+
 echo ""
 echo "---Finished---"
 echo "Setup complete!"
