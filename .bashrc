@@ -13,7 +13,7 @@ fi
 export PATH
 
 # Dot Settings
-dotsettings=$(cat .dotsettings.json)
+dotsettings=$(cat ~/.dotsettings.json)
 
 export OPENAI_KEY=$(echo $dotsettings | jq -r '.chatgpt.secret_key')
 export GITHUB_USERNAME=$(echo $dotsettings | jq -r '.github.username')
@@ -28,12 +28,15 @@ if
     echo "Error: One or more credentials are missing or empty."
 fi
 
-# Setup GitHub
-git config --global credential.helper store
-git config --global user.email "$GITHUB_EMAIL"
-git config --global user.name "$GITHUB_USERNAME"
-echo "https://$GITHUB_USERNAME:$GITHUB_KEY@github.com" > ~/.git-credentials
-git update-index --assume-unchanged .dotsettings.json
+# Setup github if not wsl
+if [[ ! "$PWD" == /mnt* ]]; then
+  # Setup GitHub
+  git config --global credential.helper store
+  git config --global user.email "$GITHUB_EMAIL"
+  git config --global user.name "$GITHUB_USERNAME"
+  echo "https://$GITHUB_USERNAME:$GITHUB_KEY@github.com" > ~/.git-credentials
+  git update-index --assume-unchanged .dotsettings.json
+fi
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
@@ -120,13 +123,18 @@ unset rc
 
 		# Get terminal width
 		local term_width=$(tput cols)
+    
+    local term_filler=0
+    if [[ !"$TERM" == "xterm-kitty" ]]; then
+      term_filler=1
+    fi
 
 		# Calculate line length
-		local line_length=$((term_width - ${directory_length} - ${git_length} - ${command_length} - ${leftover_length_left} - ${leftover_length_right}))
-
-		# Echo the line length so it can be captured
+    local line_length=$((term_width - ${directory_length} - ${git_length} - ${command_length} - ${leftover_length_left} - ${leftover_length_right} + ${term_filler}))
+	
+    # Echo the line length so it can be captured
 		echo ${line_length}
-	}
+  }
 
 	set_ps1() {
 		#Color
@@ -163,7 +171,8 @@ unset rc
 		local icon_left='\357\201\223' #nf-fa-chevron_left
 		local icon_linux_tux='\356\257\206' #nf-cod-terminal_linux
 		local icon_git='\356\234\245' #nf-oct-git_branch
-		local space=' '
+		local icon_window='\356\230\252' #nf-dev-windows11
+    local space=' '
 
 		#Info
 		local info_command_number='#\#'
@@ -232,22 +241,38 @@ unset rc
 		}
 
 		local pwd2=$(echo "$PWD" | sed -e "s:$HOME:~:" -e "s:\([^/]\)/:\1$(printf ' \356\202\261 '):g")
-		PS1=$(
-			printf "%s" "\n"\
-			"${begin}\e[${foreground};2;${color_lavender}m${end}${icon_box_drawings_light_arc_down_and_right}${icon_box_drawings_light_horizontal}${icon_left_half_black_circle}${end_color}"\
-			"${begin}\e[${background};2;${color_lavender}m\e[${foreground};2;${color_black}m${end}${info_command_number}${space}${end_color}"\
-			"${begin}\e[${background};2;${color_white}m\e[${foreground};2;${color_lavender}m${end}${icon_segment_seperator}${end_color}"\
-			"${begin}\e[${background};2;${color_white}m\e[${foreground};2;${color_black}m${end}${space}${icon_linux_tux}${space}${end_color}"\
-			"$(if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then echo -e "${git}"; else echo -e "${no_git}";fi)"\
-			"${begin}\e[${background};2;${color_blue}m\e[${foreground};2;${color_black}m${end}${space}${pwd2}${space}${end_color}"\
-			"${begin}\e[${foreground};2;${color_blue}m${end}${icon_right_half_black_circle}${end_color}"\
-			"${begin}\e[${foreground};2;${color_lavender}m${end}$(draw_line)${end_color}"\
-			"${begin}\e[${foreground};2;${color_lavender}m${end}${icon_left_half_black_circle}${end_color}"\
-			"${begin}\e[${background};2;${color_lavender}m\e[${foreground};2;${color_black}m${end}${info_date}${end_color}"\
-			"${begin}\e[${foreground};2;${color_lavender}m${end}${icon_right_half_black_circle}${end_color}"\
-			"${next_line}"\
-			"${begin}\e[${foreground};2;${color_lavender}m${end}${icon_box_drawings_light_arc_up_and_right}${icon_box_drawings_light_horizontal}${space}${icon_right}${icon_right}${icon_right}${space}${symbol}${space}"
-		)		
+		if [[ "$TERM" == "xterm-kitty" ]]; then
+      PS1=$(
+        printf "%s" "\n"\
+        "${begin}\e[${foreground};2;${color_lavender}m${end}${icon_box_drawings_light_arc_down_and_right}${icon_box_drawings_light_horizontal}${icon_left_half_black_circle}${end_color}"\
+        "${begin}\e[${background};2;${color_lavender}m\e[${foreground};2;${color_black}m${end}${info_command_number}${space}${end_color}"\
+        "${begin}\e[${background};2;${color_white}m\e[${foreground};2;${color_lavender}m${end}${icon_segment_seperator}${end_color}"\
+        "${begin}\e[${background};2;${color_white}m\e[${foreground};2;${color_black}m${end}${space}${icon_linux_tux}${space}${end_color}"\
+        "$(if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then echo -e "${git}"; else echo -e "${no_git}";fi)"\
+        "${begin}\e[${background};2;${color_blue}m\e[${foreground};2;${color_black}m${end}${space}${pwd2}${space}${end_color}"\
+        "${begin}\e[${foreground};2;${color_blue}m${end}${icon_right_half_black_circle}${end_color}"\
+        "${begin}\e[${foreground};2;${color_lavender}m${end}$(draw_line)${end_color}"\
+        "${begin}\e[${foreground};2;${color_lavender}m${end}${icon_left_half_black_circle}${end_color}"\
+        "${begin}\e[${background};2;${color_lavender}m\e[${foreground};2;${color_black}m${end}${info_date}${end_color}"\
+        "${begin}\e[${foreground};2;${color_lavender}m${end}${icon_right_half_black_circle}${end_color}"\
+        "${next_line}"\
+        "${begin}\e[${foreground};2;${color_lavender}m${end}${icon_box_drawings_light_arc_up_and_right}${icon_box_drawings_light_horizontal}${space}${icon_right}${icon_right}${icon_right}${space}${symbol}${space}"
+      )
+    else
+      PS1=$(
+        printf "%s" "\n"\
+        "${begin}\e[${foreground};2;${color_lavender}m${end}${icon_box_drawings_light_arc_down_and_right}${icon_box_drawings_light_horizontal}${end_color}"\
+        "${begin}\e[${background};2;${color_lavender}m\e[${foreground};2;${color_black}m${end}${space}${info_command_number}${space}${end_color}"\
+        "${begin}\e[${background};2;${color_white}m\e[${foreground};2;${color_lavender}m${end}${icon_segment_seperator}${end_color}"\
+        "${begin}\e[${background};2;${color_white}m\e[${foreground};2;${color_black}m${end}${space}${icon_window}${space}${end_color}"\
+        "$(if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then echo -e "${git}"; else echo -e "${no_git}";fi)"\
+        "${begin}\e[${background};2;${color_blue}m\e[${foreground};2;${color_black}m${end}${space}${pwd2}${space}${end_color}"\
+        "${begin}\e[${foreground};2;${color_lavender}m${end}$(draw_line)${end_color}"\
+        "${begin}\e[${background};2;${color_lavender}m\e[${foreground};2;${color_black}m${end}${space}${info_date}${space}${end_color}"\
+        "${next_line}"\
+        "${begin}\e[${foreground};2;${color_lavender}m${end}${icon_box_drawings_light_arc_up_and_right}${icon_box_drawings_light_horizontal}${space}${icon_right}${icon_right}${icon_right}${space}${symbol}${space}"
+      )
+    fi
 	}
 
 	PROMPT_COMMAND="set_ps1"

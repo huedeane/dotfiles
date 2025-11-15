@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ $PWD == "~/dotfiles"]]; then
+  cd ~
+  cp rf ~/dotfiles/. ~/
+  rm -rf dotfiles
+fi
+
 # Path to the JSON file
 PACKAGE_JSON=".dotpackage.json"
 
