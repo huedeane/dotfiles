@@ -20,22 +20,25 @@ export GITHUB_USERNAME=$(echo $dotsettings | jq -r '.github.username')
 export GITHUB_EMAIL=$(echo $dotsettings | jq -r '.github.email')
 export GITHUB_KEY=$(echo $dotsettings | jq -r '.github.secret_key')
 
-# Check if any of the credentials are empty
-if 
-  [ -z "$OPENAI_KEY" ] || 
-  [ -z "$GITHUB_USERNAME" ] || 
-  [ -z "$GITHUB_KEY" ]; then
-    echo "Error: One or more credentials are missing or empty."
+# Check if GPT credentials are missing or empty
+if [[ -z "$OPENAI_KEY" ]]; then
+  echo "Error: GPT credentials are missing or empty."
 fi
 
 # Setup github if not wsl
 if [[ ! "$PWD" == /mnt* ]]; then
-  # Setup GitHub
-  git config --global credential.helper store
-  git config --global user.email "$GITHUB_EMAIL"
-  git config --global user.name "$GITHUB_USERNAME"
-  echo "https://$GITHUB_USERNAME:$GITHUB_KEY@github.com" > ~/.git-credentials
-  git update-index --assume-unchanged .dotsettings.json
+  if 
+  [ -z "$GITHUB_USERNAME" ] || 
+  [ -z "$GITHUB_KEY" ]; then
+    echo "Error: Github credentials are missing or empty."
+  else
+    # Setup GitHub
+    git config --global credential.helper store
+    git config --global user.email "$GITHUB_EMAIL"
+    git config --global user.name "$GITHUB_USERNAME"
+    echo "https://$GITHUB_USERNAME:$GITHUB_KEY@github.com" > ~/.git-credentials
+    git update-index --assume-unchanged .dotsettings.json
+  fi
 fi
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
