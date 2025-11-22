@@ -3,7 +3,7 @@ PACKAGE_JSON=".dotpackage.json"
 
 # Function to check if the script is run with sudo privileges
 function check_sudo() {
-   if [ "$(id -u)" -eq 0 ] && [ "$1" != "bypass" ]; then
+  if [ "$(id -u)" -eq 0 ] && [ "$1" != "bypass" ]; then
     echo "Do not run this script with sudo. Exiting."
     exit 1
   fi
@@ -15,7 +15,7 @@ function check_sudo() {
       cp -rf ~/dotfiles/. ~/
       rm -rf dotfiles
     fi
- 
+
     echo "Executing with bypass"
     exec sudo bash "$0" "bypass" "$@"
   fi
@@ -41,6 +41,27 @@ function detect_package_manager() {
   fi
 }
 
+function check_jq_installed() {
+  echo "---jq---"
+  $INSTALL_CMD jq
+}
+
+# Function to install the latest version of a package
+function install_latest() {
+  $INSTALL_CMD "$1"
+}
+
+# Function to install a specific version of a package
+function install_version() {
+  $INSTALL_CMD "$1=$2"
+}
+
+# Function to handle custom command installation
+function exec_custom_command() {
+  local exec_command="$1"
+  eval "$exec_command"
+}
+
 # Reload to sudo
 check_sudo "$@"
 
@@ -61,13 +82,15 @@ for package in $(jq -r '.packages[] | @base64' "$PACKAGE_JSON"); do
   version=$(_jq '.version')
   install_type=$(_jq '.install_type')
   exec_command=$(_jq '.exec')
+  config=$(_jq '.config')
+
   echo ""
   echo "---$name---"
   # Handle installation based on install type
   if [ "$install_type" == "command" ] && [ "$exec_command" != "" ]; then
     echo "Running custom installation command: $exec_command"
     echo ""
-    install_custom_command "$exec_command"
+    exec_custom_command "$exec_command"
   elif [ "$install_type" == "package-manager" ] && [ "$version" == "latest" ]; then
     echo "Installing the latest version of $name..."
     install_latest "$name"
@@ -75,9 +98,14 @@ for package in $(jq -r '.packages[] | @base64' "$PACKAGE_JSON"); do
     echo "Installing $name version $version..."
     install_version "$name" "$version"
   fi
+
+  if [ -n "$config" ] && [ "$config" != "null" ]; then
+    echo "Running custom config command: $config"
+    echo ""
+    exec_custom_command "$config"
+  fi
 done
 
 echo ""
 echo "---Finished---"
 echo "Setup complete!"
-

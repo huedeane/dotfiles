@@ -17,6 +17,8 @@
 !.config/vesktop/themes/
 !.config/vesktop/settings/
 !.config/home-manager/
+!.config/mpd/
+!.config/rmpc/
 
 # Other Dot Files
 !.bashrc
