@@ -1,10 +1,11 @@
 # Ignore everything
 /*
 
-# Allow .config folder but not its content by default
+# Allow dotfiles folder but not its content by default
 .config/*
+.local/*
 
-# Allow only specific folders inside .config
+# Allow only specific folders inside dotfiles
 !.config
 !.config/alacritty/
 !.config/kitty/
@@ -19,6 +20,11 @@
 !.config/home-manager/
 !.config/mpd/
 !.config/rmpc/
+
+!.local
+!.local/share/
+!.local/share/fonts/
+!.local/share/fonts/ComicShannsMono/
 
 # Other Dot Files
 !.bashrc
