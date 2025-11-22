@@ -9,16 +9,36 @@
     },
     {
       "name": "chatgpt-shell-cli",
-      "description": "A minimal shell script for accessing OpenAI’s ChatGPT and DALL·E directly from the terminal",
+      "description": "A minimal shell script for accessing OpenAI’s ChatGPT and DALL·E directly from the terminal.",
       "install_type": "command",
       "exec": "dnf copr enable kylegospo/chatGPT-shell-cli -y && dnf install chatgpt-shell-cli -y"
     },
     {
       "name": "kitty",
-      "description": "Fast, feature-packed, and highly customizable terminal emulator designed",
+      "description": "Fast, feature-packed, and highly customizable terminal emulator designed.",
       "install_type": "package-manager",
       "version": "latest",
       "exec": ""
+    },
+    {
+      "name": "rpmfusion",
+      "description": "Third-party software repository for Fedora and other Red Hat-based Linux distributions.",
+      "install_type": "command",
+      "exec": "dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+    },
+    {
+      "name": "mpd",
+      "description": "Music Player Daemon is an lightweight, flexible, and powerful server-side application for playing music.",
+      "install_type": "package-manager",
+      "version": "latest",
+      "exec":"dnf install mpd",
+      "config": "systemctl enable mpd"
+    },
+    {
+      "name": "rmpc",
+      "description": "rmpc is a beautiful, modern and configurable terminal based Music Player Daemon client",
+      "install_type": "command",
+      "exec": "dnf copr enable skoved/rmpc -y && dnf install rmpc -y"
     }
   ]
 }
