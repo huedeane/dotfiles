@@ -2,7 +2,6 @@
 Name=Rusty Music Player Client
 Comment=Open Music in rmpc
 Exec=kitty -e queue-rmpc %f
-Icon=steam_icon_2414270
 Terminal=false
 Type=Application
 MimeType=audio/mpeg;
