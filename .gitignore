@@ -22,6 +22,7 @@
 .config/mpd/*
 !.config/mpd/mpd.conf
 !.config/rmpc/
+!.config/yazi/
 
 !.local
 !.local/bin/
