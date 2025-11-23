@@ -1,0 +1,12 @@
+MUSIC="$HOME/Music/"
+short="${1#$MUSIC}"
+
+# If $1 is empty, then open rmpc, else open song
+if [ -z "$1" ]; then
+  rmpc
+else
+  rmpc clear
+  rmpc add "$short"
+  rmpc play
+  rmpc
+fi

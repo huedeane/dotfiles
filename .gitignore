@@ -19,12 +19,18 @@
 !.config/vesktop/settings/
 !.config/home-manager/
 !.config/mpd/
+.config/mpd/*
+!.config/mpd/mpd.conf
 !.config/rmpc/
 
 !.local
+!.local/bin/
 !.local/share/
+.local/share/*
 !.local/share/fonts/
-!.local/share/fonts/ComicShannsMono/
+!.local/share/applications/
+.local/share/applications/*
+!.local/share/applications/Rusty Music Player Client.desktop
 
 # Other Dot Files
 !.bashrc

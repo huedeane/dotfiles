@@ -38,7 +38,8 @@
       "name": "rmpc",
       "description": "rmpc is a beautiful, modern and configurable terminal based Music Player Daemon client",
       "install_type": "command",
-      "exec": "dnf copr enable skoved/rmpc -y && dnf install rmpc -y"
+      "exec": "dnf copr enable skoved/rmpc -y && dnf install rmpc -y",
+      "config": "sudo -u $USERNAME update-desktop-database /home/$USERNAME/.local/share/applications && sudo -u $USERNAME xdg-mime default \"Rusty Music Player Client.desktop\" audio/mpeg"
     }
   ]
 }

@@ -71,6 +71,8 @@ detect_package_manager
 # Check if jq is installed before proceeding
 check_jq_installed
 
+read -p "Enter your username: " USERNAME
+
 # Read the JSON file and parse the package list using jq
 # Install packages listed in the JSON file
 for package in $(jq -r '.packages[] | @base64' "$PACKAGE_JSON"); do
