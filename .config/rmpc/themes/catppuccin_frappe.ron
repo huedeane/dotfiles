@@ -113,8 +113,7 @@
           (kind: Text(" ]"), style: (fg: "#babbf1", modifiers: "Bold")),
         ],
         center: [
-          (kind: Property(Song(Title)), style: (fg: "#e5c890",modifiers: "Bold"),
-            default: (kind: Property(Song(Filename)), style: (fg: "#c6d0f5",modifiers: "Bold")))
+          (kind: Property(Song(Title)), style: (fg: "#e5c890",modifiers: "Bold"), default: (kind: Text("No Song"), style: (fg: "#c6d0f5")))
         ],
         right: [
           (kind: Text("[ "), style: (fg: "#babbf1", modifiers: "Bold")),
@@ -126,24 +125,22 @@
       (
         left: [
           (kind: Text(" [ "),style: (fg: "#babbf1", modifiers: "Bold")),
-          (kind: Property(Song(Other("genre"))), style: (fg: "#c6d0f5")),
+          (kind: Property(Song(Other("genre"))), default: (kind: Text("-")), style: (fg: "#c6d0f5")),
           (kind: Text(" | "),style: (fg: "#babbf1", modifiers: "Bold")),
-          (kind: Property(Song(Other("date"))), style: (fg: "#c6d0f5")),
+          (kind: Property(Song(Other("date"))), default: (kind: Text("-")), style: (fg: "#c6d0f5")),
           (kind: Text(" | "),style: (fg: "#babbf1", modifiers: "Bold")),
-          (kind: Property(Song(Disc)), style: (fg: "#c6d0f5")),
+          (kind: Property(Song(Disc)), default: (kind: Text("")), style: (fg: "#c6d0f5")),
           (kind: Text("-"),style: (fg: "#babbf1", modifiers: "Bold")),
           (kind: Property(Song(Track)),style: (fg: "#c6d0f5")),
           (kind: Text(" | "),style: (fg: "#babbf1", modifiers: "Bold")),
-          (kind: Property(Status(Bitrate)),default: (kind: Text(" ")),style: (fg: "#c6d0f5")),
+          (kind: Property(Status(Bitrate)),default: (kind: Text("0")),style: (fg: "#c6d0f5")),
           (kind: Text(" kbps"),style: (fg: "#c6d0f5")),
           (kind: Text(" ]"),style: (fg: "#babbf1", modifiers: "Bold"))
         ],
         center: [ 
-          (kind: Property(Song(Artist)), style: (fg: "#c6d0f5"),
-            default: (kind: Text("Unknown Artist"), style: (fg: "#e78284"))),
-          (kind: Text(" - "), style: (fg: "#babbf1")),
-            (kind: Property(Song(Album)),style: (fg: "#c6d0f5" ),
-            default: (kind: Text("Unknown Album"), style: (fg: "#e78284")))
+            (kind: Property(Song(Artist)), style: (fg: "#c6d0f5"), default: (kind: Text("Unknown Artist"), style: (fg: "#c6d0f5"))),
+            (kind: Text(" - "), style: (fg: "#babbf1")),
+            (kind: Property(Song(Album)), style: (fg: "#c6d0f5"), default: (kind: Text("Unknown Album"), style:(fg:"#c6d0f5")))
         ],
         right: [
           (kind: Text(" [ "), style: (fg: "#babbf1", modifiers: "Bold")),
@@ -202,11 +199,11 @@
       ]), default: (kind: Property(Filename)))
     ],
     level_styles: (
-      info:  (fg: "red", bg: "yellow"),
-      warn:  (fg: "red", bg: "yellow"),
-      error: (fg: "red", bg: "yellow"),
-      debug: (fg: "red", bg: "yellow"),
-      trace: (fg: "red", bg: "yellow"),
+      info:  (fg: "#a6d189", bg: "#626880"),
+      warn:  (fg: "#e5c890", bg: "#626880"),
+      error: (fg: "#e78284", bg: "#626880"),
+      debug: (fg: "#a6d189", bg: "#626880"),
+      trace: (fg: "#f4b8e4", bg: "#626880"),
     ),
     components: {
       "custom-progressbar": Split(direction: Horizontal, panes: [
@@ -229,20 +226,20 @@
       bar_spacing: 1,
       bg_color: None,
       bar_color: Gradient({
-        0:   "#babbf1",
-        8:  "#8caaee",
-        16:  "#85c1dc",
-        23: "#99d1db",
-        30: "#81c8be",
-        38: "#a6d189",
-        46: "#e5c890",
-        53: "#ef9f76",
-        61: "#ea999c",
-        69: "#e78284",
-        76: "#ca9ee6",
-        84: "#f4b8e4",
-        92: "#eebebe",
-        100: "#f2d5cf",
+        0:    "#babbf1",
+        8:    "#8caaee",
+        16:   "#85c1dc",
+        23:   "#99d1db",
+        30:   "#81c8be",
+        38:   "#a6d189",
+        46:   "#e5c890",
+        53:   "#ef9f76",
+        61:   "#ea999c",
+        69:   "#e78284",
+        76:   "#ca9ee6",
+        84:   "#f4b8e4",
+        92:   "#eebebe",
+        100:  "#f2d5cf",
       })
     ),
 )
