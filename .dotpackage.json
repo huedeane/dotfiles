@@ -32,7 +32,7 @@
       "install_type": "package-manager",
       "version": "latest",
       "exec":"dnf install mpd",
-      "config": "systemctl enable mpd"
+      "config": "systemctl --user enable mpd"
     },
     {
       "name": "rmpc",
