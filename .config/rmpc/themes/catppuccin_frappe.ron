@@ -22,7 +22,7 @@
     borders_style: (fg: "#b7bdf8"),
     highlight_border_style: (fg: "#b7bdf8"),
     symbols: (
-      song: "󰝚 ", dir: " ", playlist: "󰲸 ", marker: "* ", ellipsis: "...",
+      song: "󰝚 ", dir: "", playlist: "󰲸 ", marker: "* ", ellipsis: "...",
       song_style: (fg: "#8caaee"), 
       dir_style: (fg: "#e5c890"),
       playlist_style: (fg: "#a6d189"),
@@ -44,7 +44,7 @@
         label: "#",
         prop: (kind: Property(Position), style: (fg: "#cad3f5"),
           default: (kind: Text("?"))),
-        width: "2"
+        width: "3"
       ),
       (
         label: "Title",
@@ -57,16 +57,11 @@
         prop:
           (kind: Transform(Replace(content: (kind: Sticker("rating")), replacements: [
             (match:  "0", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "1", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "2", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "3", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "4", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "5", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "6", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "7", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "8", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "9", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match: "10", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
+            (match:  "1", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
+            (match:  "2", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
+            (match:  "3", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
+            (match:  "4", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
+            (match:  "5", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
           ])), default: (kind: Text("    "), style: (fg: "#e5c890"))),
         width: "9"
       ),
@@ -100,16 +95,11 @@
           (kind: Text(" [ "), style: (fg: "#babbf1", modifiers: "Bold")),
           (kind: Transform(Replace(content: (kind: Sticker("rating")), replacements: [
             (match:  "0", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "1", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "2", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "3", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "4", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "5", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "6", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "7", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "8", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match:  "9", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
-            (match: "10", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
+            (match:  "1", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
+            (match:  "2", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
+            (match:  "3", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
+            (match:  "4", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
+            (match:  "5", replace: (kind: Group([(kind: Text("    "), style: (fg: "#e5c890"))]))),
           ])), default: (kind: Text("    "), style: (fg: "#e5c890"))),
           (kind: Text(" ]"), style: (fg: "#babbf1", modifiers: "Bold")),
         ],
