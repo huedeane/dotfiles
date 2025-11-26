@@ -11,6 +11,14 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
+function file() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
+  [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}
+
 # Dot Settings
 dotsettings=$(cat ~/.dotsettings.json)
 
@@ -284,9 +292,14 @@ set_ps1() {
 PROMPT_COMMAND="set_ps1"
 #PS1 End
 
+eval "$(zoxide init bash)"
+
 # ---------------------------------
 # Custom Aliases
 # ---------------------------------
+alias f='file'
+alias music="rmpc"
+alias m="rmpc"
 alias grub-update='sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
 alias chatgpt='chatgpt'
 alias gpt='chatgpt.sh'
