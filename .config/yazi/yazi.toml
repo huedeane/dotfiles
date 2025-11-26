@@ -14,7 +14,7 @@ show_hidden    = true
 show_symlink   = true
 scrolloff      = 5
 mouse_events   = [ "click", "scroll" ]
-title_format   = "Yazi: {cwd}"
+title_format   = "File: {cwd}"
 
 [preview]
 wrap            = "yes"
@@ -30,30 +30,19 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
-	{ run = 'code %*',    orphan = true, desc = "code",           for = "windows" },
-	{ run = 'code -w %*', block = true,  desc = "code (block)",   for = "windows" },
+	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "linux" },
 ]
 open = [
-	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
-	{ run = 'open "$@"',                    desc = "Open", for = "macos" },
-	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
-	{ run = 'termux-open "$1"',             desc = "Open", for = "android" },
+	{ run = 'xdg-open "$1"', desc = "Open", for = "linux" },
 ]
 reveal = [
-	{ run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
-	{ run = 'open -R "$1"',                         desc = "Reveal", for = "macos" },
-	{ run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
-	{ run = 'termux-open "$(dirname "$1")"',        desc = "Reveal", for = "android" },
-	{ run = '''clear; exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+	{ run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
 ]
 extract = [
-	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
-	{ run = 'ya pub extract --list %*',   desc = "Extract here", for = "windows" },
+	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "linux" },
 ]
 play = [
-    { run = 'xdg-open "$1"', block = true, for = "unix" },
-    { run = 'mpc add %* && mpc play', orphan = true, for = "windows" },
+  { run = 'xdg-open "$1"', desc = "Play with music player", block = true, for = "linux" },
 ]
 
 [open]
@@ -84,6 +73,16 @@ bizarre_retry    = 3
 image_alloc      = 536870912  # 512MB
 image_bound      = [ 5000, 5000 ]
 suppress_preload = false
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
 
 [plugin]
 fetchers = [
@@ -150,7 +149,7 @@ previewers = [
 ]
 
 [input]
-cursor_blink = false
+cursor_blink = true
 
 # cd
 cd_title  = "Change directory:"
