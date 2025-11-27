@@ -24,7 +24,7 @@
       "name": "rpmfusion",
       "description": "Third-party software repository for Fedora and other Red Hat-based Linux distributions.",
       "install_type": "command",
-      "exec": "dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+      "exec": "dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y"
     },
     {
       "name": "mpd",
@@ -32,7 +32,7 @@
       "install_type": "package-manager",
       "version": "latest",
       "exec":"dnf install mpd",
-      "config": "systemctl --user enable mpd"
+      "config": "systemctl --user enable mpd.socket && systemctl --user enable mpd.service && systemctl --user enable mpd && systemctl disable mpd"
     },
     {
       "name": "rmpc",
