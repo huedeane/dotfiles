@@ -31,8 +31,7 @@
       "description": "Music Player Daemon is an lightweight, flexible, and powerful server-side application for playing music.",
       "install_type": "package-manager",
       "version": "latest",
-      "exec":"dnf install mpd",
-      "config": "systemctl disable mpd"
+      "exec":"dnf install mpd"
     },
     {
       "name": "rmpc",
