@@ -292,6 +292,10 @@ set_ps1() {
 PROMPT_COMMAND="set_ps1"
 #PS1 End
 
+systemctl --user enable mpd.socket
+systemctl --user enable mpd.service
+systemctl --user enable mpd
+
 eval "$(zoxide init bash)"
 
 # ---------------------------------
