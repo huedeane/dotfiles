@@ -1,0 +1,74 @@
+.modeSelected__2ea32 .link__2ea32, .modeSelected__2ea32 .link__2ea32 {
+  background-color: var(--purple-3) !important;
+}
+
+.modeSelected__2ea32 .link__2ea32, .modeSelected__2ea32 .link__2ea32 .icon__2ea32 {
+  color: #303446;
+}
+
+.modeSelected__2ea32 .link__2ea32, .modeSelected__2ea32 .link__2ea32 .name__2ea32 {
+  color: #303446;
+}
+
+.modeSelected__2ea32 .link__2ea32, .modeSelected__2ea32 .link__2ea32 .actionIcon_c69b6d {
+  color: #303446;
+}
+
+.iconVisibility_c69b6d:hover .link__2ea32 {
+  background-color: var(--purple-3) !important;
+}
+
+.iconVisibility_c69b6d:hover .link__2ea32 .icon__2ea32 {
+  color: #303446;
+}
+
+.iconVisibility_c69b6d:hover .link__2ea32 .name__2ea32 {
+  color: #303446;
+}
+
+.iconVisibility_c69b6d:hover .link__2ea32 .actionIcon_c69b6d {
+  color: #303446;
+}
+.visual-refresh #app-mount .side_aa8da2 .item_aa8da2:active, .side_aa8da2 .themed_aa8da2.item_aa8da2.selected_aa8da2 {
+  background-color: var(--purple-3) !important;
+  color: #303446 !important;
+}
+
+.visual-refresh #app-mount .side_aa8da2 .themed_aa8da2.item_aa8da2:hover:not(.disabled_aa8da2) {
+  background-color: var(--purple-3) !important;
+  color: #303446 !important;
+}
+
+.title_b6c092 {
+  color: var(--yellow-3);
+}
+
+.container__35859 {
+  border: none;
+  background-color: var(--green-3);
+}
+
+.container__35859 .text__35859 {
+  color: #303446 !important;
+}
+
+.container__35859 .icon__35859 {
+  color: #303446 !important;
+}
+
+.top_aa8da2 .item_aa8da2.selected_aa8da2 {
+  color: var(--yellow-3);
+  border-bottom-color: var(--yellow-3) !important;
+}
+
+.top_aa8da2 .brand_aa8da2.item_aa8da2:hover {
+  color: var(--yellow-3) !important;
+}
+
+.top_aa8da2 .item_aa8da2.selected_aa8da2:after, .top_aa8da2 .item_aa8da2:hover:after {
+  background-color: var(--yellow-3) !important;
+}
+
+.winButtonClose_c38106:hover {
+  color: #303446;
+}

@@ -19,8 +19,8 @@
     ),
     highlighted_item_style: (fg: "#e5c890"),
     current_item_style: (fg: "#303446", bg: "#b7bdf8"),
-    borders_style: (fg: "#b7bdf8"),
-    highlight_border_style: (fg: "#b7bdf8"),
+    borders_style: (fg: "#737994"),
+    highlight_border_style: (fg: "#737994"),
     symbols: (
       song: "󰝚 ", dir: "", playlist: "󰲸 ", marker: "* ", ellipsis: "...",
       song_style: (fg: "#8caaee"), 

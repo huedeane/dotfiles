@@ -26,7 +26,7 @@ count_selected = { fg = "#303446", bg = "#e5c890" }
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "#babbf1" }
+border_style  = { fg = "#737994" }
 
 # : }}}
 
@@ -81,9 +81,9 @@ perm_write = { fg = "#e5c890" }
 perm_exec  = { fg = "#e78284" }
 
 # Progress
-progress_label  = { fg = "red", bold = true }
-progress_normal = { fg = "red", bg = "red" }
-progress_error  = { fg = "red", bg = "red" }
+progress_label  = { fg = "#303446", bold = true }
+progress_normal = { bg = "#e5c890" }
+progress_error  = { bg = "#e78284" }
 
 # : }}}
 
@@ -105,7 +105,7 @@ separator_style = { fg = "#c6d0f5" }
 [confirm]
 border      = { fg = "#babbf1" }
 title       = { fg = "#babbf1"}
-content     = { fg = "red", bg = "red"}
+content     = { fg = "#e5c890"}
 list        = { fg = "#e5c890"}
 btn_yes     = { fg = "#303446", bg = "#babbf1"}
 btn_no      = { fg = "#303446", bg = "#babbf1"}
@@ -154,12 +154,12 @@ selected = { reversed = true }
 # : Completion {{{
 
 [cmp]
-border        = { fg = "red" }
-active        = { fg = "red" }
-inactive      = { fg = "red" }
-icon_file     = "test"
-icon_folder   = "test"
-icon_command  = "test"
+border        = { fg = "#c6d0f5" }
+active        = { fg = "#e5c890" }
+inactive      = { fg = "#babbf1" }
+icon_file     = "󰈔"
+icon_folder   = "󰉋"
+icon_command  = ""
 
 # : }}}
 
