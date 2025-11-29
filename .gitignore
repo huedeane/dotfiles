@@ -4,6 +4,7 @@
 # Allow dotfiles folder but not its content by default
 .config/*
 .local/*
+.mozilla/*
 
 # Allow only specific folders inside dotfiles
 !.config
@@ -33,6 +34,12 @@
 !.local/share/applications/
 .local/share/applications/*
 !.local/share/applications/Rusty Music Player Client.desktop
+
+!.mozilla
+!.mozilla/textfox
+!.mozilla/textfox/backup/
+.mozilla/textfox/backup/*
+!.mozilla/textfox/backup/.gitkeep
 
 # Other Dot Files
 !.bashrc
