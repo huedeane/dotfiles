@@ -19,6 +19,12 @@
   display: var(--tf-display-nav-buttons);
 }
 
+@media (min-width: 1200px) {
+  #stop-reload-button {
+    padding-right: clamp(0px, 11%, 260px);
+  }
+}
+
 /* 
    hide elements of the identity box when:
    the page is secure (using https) and the domain is verified
@@ -32,9 +38,6 @@
     }
     #permissions-granted-icon + box:has(image[sharing="true"]) {
       margin-left: -4px;
-    }
-    #identity-icon {
-      list-style-image: unset !important;
     }
   }
   &.mixedActiveBlocked {
@@ -138,4 +141,8 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   .titlebar-spacer[type="post-tabs"] {
     width: 0 !important;
   }
+}
+
+.urlbar-input-container {
+  border-bottom: 1px solid var(--tf-accent) !important;
 }

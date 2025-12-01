@@ -22,9 +22,68 @@ box#vertical-tabs {
   }
 }
 
-/* hide window controls */
+.titlebar-buttonbox-container::before {
+  content: "";
+  display: block;
+  border-left: 1px solid var(--tf-accent);
+  width: 5px !important;
+  border-inline-start: 1px solid var(--tf-accent);
+  height: 20px;
+  margin: auto 10px auto 5px;
+}
 .titlebar-buttonbox-container {
-  display: var(--tf-display-window-controls);
+  display: var(--tf-display-window-controls) !important;
+  padding-right: 10px;
+}
+
+.titlebar-spacer {
+  display: none !important;
+}
+
+.titlebar-buttonbox-container .titlebar-button .toolbarbutton-icon {
+  display: none !important;
+}
+
+.titlebar-buttonbox-container .titlebar-buttonbox {
+  display: flex;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.titlebar-buttonbox-container .titlebar-button {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  padding: 0px !important;
+}
+
+.titlebar-buttonbox-container .titlebar-restore::before, 
+.titlebar-buttonbox-container .titlebar-min::before,
+.titlebar-buttonbox-container .titlebar-max::before,
+.titlebar-buttonbox-container .titlebar-close::before {
+  color: var(--tf-window-control);
+  width: 24px;
+  height: 24px;
+  display: block;
+  position: absolute;
+  font-size: 18px;
+  text-align: center;
+}
+
+.titlebar-buttonbox-container .titlebar-restore::before { 
+  content: "";
+}
+
+.titlebar-buttonbox-container .titlebar-min::before {
+  content: "";
+}
+
+.titlebar-buttonbox-container .titlebar-max::before {
+  content: "";
+}
+
+.titlebar-buttonbox-container .titlebar-close::before {
+  content: "";
 }
 
 #TabsToolbar {

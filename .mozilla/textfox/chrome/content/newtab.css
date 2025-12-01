@@ -91,4 +91,10 @@
       display: none !important;
     }
   }
+
+  .newtab-main {
+    justify-content: end !important;
+    width: 100% !important;
+    margin: 0px !important;
+  }
 }
