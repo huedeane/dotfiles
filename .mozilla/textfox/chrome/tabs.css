@@ -57,6 +57,10 @@ box#vertical-tabs {
   padding: 0px !important;
 }
 
+.titlebar-buttonbox-container .titlebar-button:hover {
+  background-color: var(--toolbarbutton-hover-background);
+}
+
 .titlebar-buttonbox-container .titlebar-restore::before, 
 .titlebar-buttonbox-container .titlebar-min::before,
 .titlebar-buttonbox-container .titlebar-max::before,

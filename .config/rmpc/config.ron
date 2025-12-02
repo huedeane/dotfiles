@@ -122,13 +122,13 @@
     Select the current song when it changes.
     Default: false
     */
-    select_current_song_on_change: false,
+    select_current_song_on_change: true,
 
     /*
     Center the current song when it changes.
     Default: false
     */
-    center_current_song_on_change: false,
+    center_current_song_on_change: true,
 
     /*
     Execute a command when the song changes.
@@ -149,7 +149,7 @@
     First element is the command, rest are arguments.
     Nothing executed if left empty.
     */
-    // on_resize: [],
+    on_resize: ["~/.config/rmpc/script/resize"],
 
     /*
     Leading "The" will be ignored while sorting in browser panes if set to true.
@@ -340,14 +340,7 @@
     */
     tabs: [
       (name: "Home", pane: Split(direction: Horizontal, panes: [
-        (size: "70%", borders: "NONE", pane: Split(direction: Vertical,panes: [
-          (size: "100%", borders: "ALL", pane: Pane(Queue)),
-        ])),
-        (size: "1", borders: "NONE", pane: Pane(Property(content : [(kind: Text(" "))]))),
-        (size: "30%", borders: "NONE", pane: Split(direction: Vertical, panes: [
-            (size: "0.45r", borders: "ALL", pane: Pane(AlbumArt)),
-            (size: "100%", borders: "ALL", pane: Pane(Cava)),
-        ])),
+        (size: "100%", borders: "NONE", pane: Component("custom-home")),
       ])),
       (name: "Directories", pane: Split(direction: Horizontal,panes: [
         (size: "100%", borders: "ALL", pane: Pane(Directories)),
@@ -363,9 +356,6 @@
       ])),
       (name: "Genre", pane: Split(direction: Horizontal, panes: [
         (size: "100%", borders: "ALL", pane: Pane(Browser(root_tag: "genre", separator: ";"))),
-      ])),
-      (name: "Queue", pane: Split(direction: Horizontal, panes: [
-        (size: "100%", borders: "ALL", pane: Pane(Queue))
       ])),
       (name: "Search", pane: Split(direction: Horizontal, panes: [
           (size: "100%", borders: "ALL", pane: Pane(Search)),
