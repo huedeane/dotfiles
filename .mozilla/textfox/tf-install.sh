@@ -26,8 +26,8 @@ backup_profile() {
   backup_filepath=~/.mozilla/textfox/backup
   echo "${backup_filepath}/chrome.bak"
   if [ -d "${backup_filepath}/chrome.bak" ]; then
-    read -rp "Do you want to restore your backup? (y/N): " backup_profile
-    if [[ "$backup_profile" =~ ^[yY]$ ]]; then
+    read -rp "Do you want to skip restoring your backup? (Y/N): " backup_profile
+    if [[ "$backup_profile" =~ ^[nN]$ ]]; then
       rm -rf "${fp}/chrome"
       rm -rf "${fp}/user.js"
       cp -rv "${backup_filepath}/chrome.bak" "${fp}/chrome"
