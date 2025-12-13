@@ -48,7 +48,7 @@ if [[ ! "$PWD" == /mnt* ]]; then
     git config --global user.email "$GITHUB_EMAIL"
     git config --global user.name "$GITHUB_USERNAME"
     echo "https://$GITHUB_USERNAME:$GITHUB_KEY@github.com" >~/.git-credentials
-    git update-index --assume-unchanged .dotsettings.json
+    git update-index --assume-unchanged ~/.dotsettings.json
   fi
 fi
 

@@ -53,10 +53,10 @@ normal_main = { fg = "#303446", bg = "#babbf1", bold = true }
 normal_alt  = { fg = "#babbf1", bg = "#414559" }
 
 # Select mode
-select_main = { fg = "#303446", bg = "#e5c890", bold = true }
-select_alt  = { fg = "#e5c890", bg = "#414559" }
+select_main = { fg = "#303446", bg = "#ca9ee6", bold = true }
+select_alt  = { fg = "#ca9ee6", bg = "#414559" }
 
-# Unset mode # Good
+# Unset mode
 unset_main = { fg = "#303446", bg = "#a6d189", bold = true }
 unset_alt  = { fg = "#a6d189", bg = "#414559" }
 
@@ -73,7 +73,7 @@ overall = { fg = "#e5c890"}
 # sep_right = { open = "", close = "" }
 # sep_left = { open = "", close = "" }
 
-# Permissions # Good
+# Permissions
 perm_sep   = { fg = "#c6d0f5" }
 perm_type  = { fg = "#c6d0f5" }
 perm_read  = { fg = "#a6d189" }
