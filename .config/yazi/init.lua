@@ -41,9 +41,9 @@ function Status:mode()
 
 	local style = self:style()
 	return ui.Line({
-		ui.Span(th.status.sep_left.open):fg(style.main.bg):bg("reset"),
+		ui.Span(th.status.sep_left.open):fg("#babbf1"):bg("reset"),
 		ui.Span(" " .. mode .. " "):style(style.main),
-		ui.Span(th.status.sep_left.close):fg(style.main.bg):bg(style.alt.bg),
+		ui.Span(th.status.sep_left.close):fg("#babbf1"):bg("#414559"),
 	})
 end
 
