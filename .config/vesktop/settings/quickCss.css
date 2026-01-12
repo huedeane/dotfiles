@@ -72,3 +72,14 @@
 .winButtonClose_c38106:hover {
   color: #303446;
 }
+
+.vc-notification-root {
+  border: var(--border-thickness) solid var(--purple-3);
+  bottom: 1.25rem !important;
+  right: 1.25rem !important;
+  min-height: auto;
+}
+
+.e4491282b6a5364a-modal {
+  border: var(--border-thickness) solid var(--purple-3);
+}
