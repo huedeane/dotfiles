@@ -8,7 +8,7 @@
         "system24-catppuccin-frappe.theme.css"
     ],
     "enableReactDevtools": false,
-    "frameless": false,
+    "frameless": true,
     "transparent": false,
     "winCtrlQ": false,
     "disableMinSize": false,
@@ -565,7 +565,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1764309217608
+        "settingsSyncVersion": 1764392808763
     },
     "uiElements": {
         "chatBarButtons": {},

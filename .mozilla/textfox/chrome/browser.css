@@ -12,6 +12,8 @@ browser {
   border-radius: var(--tf-rounding);
   padding: 8px !important;
   transition: border-color var(--tf-border-transition);
+  margin-left: 20px !important;
+  
   &:hover {
     border-color: var(--tf-accent) !important;
     &::before {

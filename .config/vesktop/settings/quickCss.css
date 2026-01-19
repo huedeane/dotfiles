@@ -83,3 +83,47 @@
 .e4491282b6a5364a-modal {
   border: var(--border-thickness) solid var(--purple-3);
 }
+
+.c69b6db0641110f6-containerDefault ._2ea32c412048f708-icon {
+  color: #838ba7;
+}
+
+.c69b6db0641110f6-containerDefault ._2ea32c412048f708-name {
+  color: #838ba7;
+}
+
+._2ea32c412048f708-modeUnreadImportant ._2ea32c412048f708-unreadImportant {
+  background-color: var(--purple-3);
+}
+
+._2ea32c412048f708-modeUnreadImportant ._2ea32c412048f708-name {
+  color: var(--purple-3);
+}
+
+._2ea32c412048f708-modeUnreadImportant ._2ea32c412048f708-icon {
+  color: var(--purple-3)
+}
+
+._29444ba32c7fbeab-containerDefault .b0dfc2ed9c57037d-overflow {
+  color: var(--yellow-3);
+}
+
+.f75fb00fb7356cbe-title ._9293f6b2fc12398a-title {
+   color: var(--purple-3)
+}
+
+.f75fb00fb7356cbe-title ._9293f6b2fc12398a-channelIcon ._9293f6b2fc12398a-icon {
+   color: var(--purple-3)
+}
+
+._2ea32c412048f708-modeSelected ._2ea32c412048f708-name {
+  color: var(--purple-3);
+}
+
+._2ea32c412048f708-modeSelected ._2ea32c412048f708-icon {
+  color: var(--purple-3)
+}
+
+.c8ffbb79449f399c-membersGroup .c8ffbb79449f399c-membersGroupHeader {
+  color: var(--yellow-3);
+}
